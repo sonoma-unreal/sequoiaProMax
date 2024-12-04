@@ -1,8 +1,8 @@
 let appInd;
-const g = window.location.pathname === "/up";
-const a = window.location.pathname === "/yz";
-const c = window.location.pathname === "/gt";
-const t = window.top.location.pathname === "/rx";
+const g = window.location.pathname === "/games";
+const a = window.location.pathname === "/apps";
+const c = window.location.pathname === "/settings";
+const t = window.top.location.pathname === "/browser";
 
 function Span(name) {
   return name.split("").map(char => {
