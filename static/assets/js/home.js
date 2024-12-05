@@ -5,17 +5,12 @@ try {
 } catch (e) {
   inFrame = true;
 }
-if (!localStorage.getItem("ab")) localStorage.setItem("ab", true);
+if (!localStorage.getItem("ab")) localStorage.setItem("ab", false);
 if (
   !inFrame &&
   !navigator.userAgent.includes("Firefox") &&
-  localStorage.getItem("ab") === "true"
+  localStorage.getItem("ab") === "false"
 ) {
-  const popup = open("about:blank", "_blank");
-  if (!popup || popup.closed) {
-    alert(
-      "Please allow popups for this site. Doing so will allow us to open the site in a about:blank tab and preventing this site from showing up in your history. You can turn this off in the site settings.",
-    );
   } else {
     const doc = popup.document;
     const iframe = doc.createElement("iframe");
