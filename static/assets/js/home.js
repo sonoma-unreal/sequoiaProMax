@@ -5,17 +5,16 @@ try {
 } catch (e) {
   inFrame = true;
 }
-if (!localStorage.getItem("ab")) localStorage.setItem("ab", false);
+if (!localStorage.getItem("ab")) localStorage.setItem("ab", true);
 if (
   !inFrame &&
   !navigator.userAgent.includes("Firefox") &&
-  localStorage.getItem("ab") === "false"
-) {
-  } else {
-    const doc = popup.document;
-    const iframe = doc.createElement("iframe");
-    const style = iframe.style;
-    const link = doc.createElement("link");
+  localStorage.getItem("ab") === "true"
+
+    const name = localStorage.getItem("name") || "My Drive - Google Drive";
+    const icon =
+      localStorage.getItem("icon") ||
+      "https://ssl.gstatic.com/docs/doclist/images/drive_2022q3_32dp.png";
 
     doc.title = name;
     link.rel = "icon";
@@ -160,19 +159,6 @@ document.addEventListener("DOMContentLoaded", event => {
     particlesJS("particles-js", particlesConfig);
   }
 });
-// Splash texts
-const SplashT = [
-  "Over 8 Million Users since 2023",
-  "Fastest growing proxy server",
-  "Made by xBubbo",
-  "Check out discord.gg/interstellar :)",
-  "Thanks for using the site",
-  "Follow us on Tiktok (@useinterstellar)",
-  "Subscribe to us on YouTube (@unblocking)",
-  "Subscribe to my Youtube (@xbubbo)",
-  "Check out the settings page",
-  "Check out our Patreon (https://www.patreon.com/gointerstellar)",
-];
 
 let SplashI = Math.floor(Math.random() * SplashT.length);
 const SplashE = document.getElementById("splash");
@@ -185,6 +171,8 @@ function US() {
 SplashE.innerText = SplashT[SplashI];
 
 SplashE.addEventListener("click", US);
+
+}
 
 function randRange(min, max) {
   return Math.floor(Math.random() * (max - min) + min);
