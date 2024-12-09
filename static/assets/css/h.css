@@ -6,7 +6,9 @@
 
 .title {
    font-size: 10vh;
+   padding: 15px;
    color: var(--text-primary);
+   backdrop-filter: blur(15px) brightness(75%););
    font-family: "Inter", sans-serif;
    text-align: center;
    text-transform: uppercase;
