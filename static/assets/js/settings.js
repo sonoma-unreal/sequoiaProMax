@@ -219,14 +219,30 @@ function clearCookies() {
   }
 }
 
-// Function to clear site data (cookies, localStorage, and sessionStorage)
 function clearSiteData() {
-  // Clear cookies
-  clearCookies();
-  // Clear local storage and session storage
+  // Clear all cookies
+  document.cookie.split(";").forEach((cookie) => {
+    const cookieName = cookie.split("=")[0].trim();
+    document.cookie = `${cookieName}=; max-age=-99999999; path=/;`;
+  });
+
+  // Clear localStorage
   localStorage.clear();
+
+  // Clear sessionStorage (if needed)
   sessionStorage.clear();
-  alert('All cookies and site data have been cleared!');
+
+  // Clear Web Storage (if needed)
+  if ('caches' in window) {
+    caches.keys().then((cacheNames) => {
+      cacheNames.forEach((cacheName) => {
+        caches.delete(cacheName);
+      });
+    });
+  }
+
+  // Optionally reload the page after clearing data
+  window.location.reload();
 }
 
 // Particles
