@@ -200,23 +200,6 @@ function updateHeadSection(selectedValue) {
   }
 }
 
-// Custom Background
-document.addEventListener("DOMContentLoaded", () => {
-  const saveButton = document.getElementById("save-button");
-  const backgroundInput = document.getElementById("background-input");
-  const resetButton = document.getElementById("reset-button");
-
-  saveButton.addEventListener("click", () => {
-    const imageURL = backgroundInput.value;
-    if (imageURL.trim() !== "") {
-      localStorage.setItem("backgroundImage", imageURL);
-      document.body.style.backgroundImage = `url('${imageURL}')`;
-      backgroundInput.value = "";
-    } else {
-      console.log("No image URL entered.");
-    }
-  });
-
   // New Reset Button Functionality
   resetButton.addEventListener("click", () => {
     localStorage.removeItem("backgroundImage");
