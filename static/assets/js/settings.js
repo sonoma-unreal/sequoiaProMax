@@ -199,6 +199,7 @@ function updateHeadSection(selectedValue) {
     localStorage.setItem("icon", customIcon);
   }
 }
+
 // Custom Background
 document.addEventListener("DOMContentLoaded", () => {
   const saveButton = document.getElementById("save-button");
@@ -216,12 +217,34 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
+  // New Reset Button Functionality
   resetButton.addEventListener("click", () => {
     localStorage.removeItem("backgroundImage");
     document.body.style.backgroundImage = "url('default-background.jpg')";
     window.location.reload();
+    clearSiteData(); // Clear all cookies and site data
   });
 });
+
+// Function to delete all cookies
+function clearCookies() {
+  var cookies = document.cookie.split(";"); // Split all cookies
+  for (var i = 0; i < cookies.length; i++) {
+    var cookie = cookies[i].split("=");
+    var cookieName = cookie[0].trim();
+    document.cookie = cookieName + "=;expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/"; // Delete each cookie
+  }
+}
+
+// Function to clear site data (cookies, localStorage, and sessionStorage)
+function clearSiteData() {
+  // Clear cookies
+  clearCookies();
+  // Clear local storage and session storage
+  localStorage.clear();
+  sessionStorage.clear();
+  alert('All cookies and site data have been cleared!');
+}
 
 // Particles
 const switches = document.getElementById("2");
@@ -241,6 +264,7 @@ switches.addEventListener("change", event => {
     window.localStorage.setItem("particles", "false");
   }
 });
+
 // AB Cloak
 function AB() {
   let inFrame;
