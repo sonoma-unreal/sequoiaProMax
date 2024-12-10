@@ -22,6 +22,27 @@
     <div class="main">
       <div class="settings-container">
         <div class="settings-card">
+          <h3>About:Blank</h3>
+          <p>
+            Cloak the site in an about:blank page and toggle about:blank on
+            startup
+          </p>
+          <div id="ab-settings">
+            <div id="ab-settings-container">
+              <label class="switch">
+                <input
+                  type="checkbox"
+                  id="ab-settings-switch"
+                  class="slider-checkbox"
+                  onchange="toggleAB()"
+                />
+                <span class="slider-round"></span>
+              </label>
+            </div>
+            <button onclick="AB()" class="key-button">Open Popup</button>
+          </div>
+        </div>
+        <div class="settings-card">
           <h3>Set Panic Key</h3>
           <p>
             Quick open another site with one press. Used for redirects when
@@ -143,16 +164,18 @@
             <button
               class="key-button"
               value="Reset"
-              onclick"ResetCustomCloak(); redirectToMainDomain();"
+              onclick="ResetCustomCloak(); redirectToMainDomain();"
             >
               Reset Cloak
             </button>
           </div>
         </div>
         <div class="settings-card">
-          <h3>Clear Data</h3>
-          <p>Issue with the site? Clear the data by pressing the reset button below. This will clear all cookies and will usually help fix the site.</p>
-          <button class="key-button" onclick="clearSiteData()">Clear Data</button>
+          <h3>Set Background Image</h3>
+          <p>Change the site's background image.</p>
+          <input class="key-form" type="text" id="background-input" placeholder="Enter image URL" />
+          <button class="key-button" id="save-button">Save</button>
+          <button class="key-button" id="reset-button">Reset</button>
         </div>
         <div class="settings-card">
           <h3>Search Engine</h3>
@@ -178,7 +201,11 @@
           </button>
         </div>
         <div class="settings-card">
-          <h3><an>Pro</an>xy Selection</h3>
+          <h3>Choose your <an>Pro</an>xy</h3>
+          <p>
+            Ultra<an>vio</an>let is the main <an>pro</an>xy, but Dynamic is
+            faster and supports more sites.
+          </p>
           <select id="pChange">
             <option value="uv">Ultraviolet</option>
             <option value="dy">Dynamic</option>
@@ -189,11 +216,11 @@
           <p>Version: v5.2.6</p>
           <p id="last-updated">Last Updated: October 2nd, 2024</p>
           <p>
-            Questions? Email us at
-            <a href="mailto:unrealunblocking@gmail.com"
-              >unrealunblocking@gmail.com</a
-            >, or
-            <a href="https://docs.gointerstellar.app/faq">check our FAQ</a>!
+            Questions?
+            Email us at
+            <a href="mailto:unrealunblocker@gmail.com"
+              >unrealunblocker@gmail.com</a
+            >
           </p>
         </div>
       </div>
