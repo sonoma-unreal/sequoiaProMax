@@ -79,7 +79,7 @@ document.addEventListener("DOMContentLoaded", () => {
 // Key
 let eventKey = localStorage.getItem("eventKey") || "`";
 let eventKeyRaw = localStorage.getItem("eventKeyRaw") || "`";
-let pLink = localStorage.getItem("pLink") || "https://google.com/";
+let pLink = localStorage.getItem("pLink") || "https://classroom.google.com/";
 
 document.addEventListener("DOMContentLoaded", () => {
   document.getElementById("eventKeyInput").value = eventKeyRaw;
@@ -159,6 +159,30 @@ function ResetCustomCloak() {
   document.getElementById("name").value = "";
 }
 
+function clearSiteData() {
+  localStorage.clear();
+  sessionStorage.clear();
+
+document.cookie.split(";").forEach(
+  cookie => {
+    const [name] =
+  cookie.split("=")
+    document.cookie = `${name}=;expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;`;
+  });
+
+  if ('caches' in window) {
+    caches.keys().then(cacheName
+  =>
+      cacheNames.forEach(cacheName
+  =>
+        caches.delete(cacheName);
+      });
+    });
+  }
+
+  alert("Site data has been cleared, please refresh to see the results.");
+}
+
 function redirectToMainDomain() {
   const currentUrl = window.location.href;
   const mainDomainUrl = currentUrl.replace(/\/[^\/]*$/, "");
@@ -199,51 +223,29 @@ function updateHeadSection(selectedValue) {
     localStorage.setItem("icon", customIcon);
   }
 }
+// Custom Background
+document.addEventListener("DOMContentLoaded", () => {
+  const saveButton = document.getElementById("save-button");
+  const backgroundInput = document.getElementById("background-input");
+  const resetButton = document.getElementById("reset-button");
 
-  // New Reset Button Functionality
+  saveButton.addEventListener("click", () => {
+    const imageURL = backgroundInput.value;
+    if (imageURL.trim() !== "") {
+      localStorage.setItem("backgroundImage", imageURL);
+      document.body.style.backgroundImage = `url('${imageURL}')`;
+      backgroundInput.value = "";
+    } else {
+      console.log("No image URL entered.");
+    }
+  });
+
   resetButton.addEventListener("click", () => {
     localStorage.removeItem("backgroundImage");
     document.body.style.backgroundImage = "url('default-background.jpg')";
     window.location.reload();
-    clearSiteData(); // Clear all cookies and site data
   });
 });
-
-// Function to delete all cookies
-function clearCookies() {
-  var cookies = document.cookie.split(";"); // Split all cookies
-  for (var i = 0; i < cookies.length; i++) {
-    var cookie = cookies[i].split("=");
-    var cookieName = cookie[0].trim();
-    document.cookie = cookieName + "=;expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/"; // Delete each cookie
-  }
-}
-
-function clearSiteData() {
-  // Clear all cookies
-  document.cookie.split(";").forEach((cookie) => {
-    const cookieName = cookie.split("=")[0].trim();
-    document.cookie = `${cookieName}=; max-age=-99999999; path=/;`;
-  });
-
-  // Clear localStorage
-  localStorage.clear();
-
-  // Clear sessionStorage (if needed)
-  sessionStorage.clear();
-
-  // Clear Web Storage (if needed)
-  if ('caches' in window) {
-    caches.keys().then((cacheNames) => {
-      cacheNames.forEach((cacheName) => {
-        caches.delete(cacheName);
-      });
-    });
-  }
-
-  // Optionally reload the page after clearing data
-  window.location.reload();
-}
 
 // Particles
 const switches = document.getElementById("2");
@@ -263,7 +265,6 @@ switches.addEventListener("change", event => {
     window.localStorage.setItem("particles", "false");
   }
 });
-
 // AB Cloak
 function AB() {
   let inFrame;
