@@ -159,30 +159,6 @@ function ResetCustomCloak() {
   document.getElementById("name").value = "";
 }
 
-function clearSiteData() {
-  localStorage.clear();
-  sessionStorage.clear();
-
-document.cookie.split(";").forEach(
-  cookie => {
-    const [name] =
-  cookie.split("=")
-    document.cookie = `${name}=;expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;`;
-  });
-
-  if ('caches' in window) {
-    caches.keys().then(cacheName
-  =>
-      cacheNames.forEach(cacheName
-  =>
-        caches.delete(cacheName);
-      });
-    });
-  }
-
-  alert("Site data has been cleared, please refresh to see the results.");
-}
-
 function redirectToMainDomain() {
   const currentUrl = window.location.href;
   const mainDomainUrl = currentUrl.replace(/\/[^\/]*$/, "");
