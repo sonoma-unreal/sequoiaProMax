@@ -150,11 +150,9 @@
           </div>
         </div>
         <div class="settings-card">
-          <h3>Set Background Image</h3>
-          <p>Change the site's background image.</p>
-          <input class="key-form" type="text" id="background-input" placeholder="Enter image URL" />
-          <button class="key-button" id="save-button">Save</button>
-          <button class="key-button" id="reset-button">Reset</button>
+          <h3>Clear Data</h3>
+          <p>Issue with the site? Clear the data by pressing the reset button below. This will clear all cookies and will usually help fix the site.</p>
+          <button class="key-button" id="reset-button">Clear Data</button>
         </div>
         <div class="settings-card">
           <h3>Search Engine</h3>
@@ -180,47 +178,10 @@
           </button>
         </div>
         <div class="settings-card">
-          <h3>Choose your <an>Pro</an>xy</h3>
-          <p>
-            Ultra<an>vio</an>let is the main <an>pro</an>xy, but Dynamic is
-            faster and supports more sites. (Dynamic is still in beta, so expect
-            some bugs.)
-          </p>
+          <h3><an>Pro</an>xy Selection</h3>
           <select id="pChange">
-            <option value="uv">Ultraviolet (Default)</option>
-            <option value="dy">Dynamic (Doesn't work in about:blank)</option>
-          </select>
-        </div>
-        <div class="settings-card">
-          <h3>Particles</h3>
-          <p>
-            Add the particles that are from the previous version to the new
-            site.
-          </p>
-          <label class="switch">
-            <input type="checkbox" class="slider-checkbox" id="2" />
-            <span class="slider-round"></span>
-          </label>
-        </div>
-        <div class="settings-card">
-          <h3>Themes!</h3>
-          <p>Pick from a variety of themes to customize your experience.</p>
-          <select
-            placeholder="Solid Color Themes"
-            id="dropdown"
-            class="td"
-            onchange="themeChange(this)"
-          >
-            <option disabled selected>Solid Color Themes</option>
-            <option value="d">Default</option>
-            <option value="Inverted">Inverted</option>
-            <option value="sky">Sky</option>
-            <option disabled selected>Catppuccin Themes</option>
-            <option value="catppuccinMocha">Mocha</option>
-            <option value="catppuccinMacchiato">Macchiato</option>
-            <option value="catppuccinFrappe">Frappe</option>
-            <option value="catppuccinLatte">Latte</option>
-            <option disabled selected>Custom Themes</option>
+            <option value="uv">Ultraviolet</option>
+            <option value="dy">Dynamic</option>
           </select>
         </div>
         <div class="settings-card">
