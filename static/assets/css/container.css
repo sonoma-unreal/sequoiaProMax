@@ -2,8 +2,7 @@
    width: 145px;
    transition: all 0.2s ease;
    cursor: pointer;
-   backdrop-filter: var(--backdrop-filter);
-   background: #2a2a2a6b;
+   background: var(--background-column);
    border-radius: 5px;
    padding-left: 10px;
    padding-right: 10px;
@@ -63,8 +62,7 @@ input {
    padding: 20px;
    width: 550px;
    border-radius: 5px;
-   background: #2a2a2a6b;
-   backdrop-filter: var(--backdrop-filter);
+   background: var(--background-column);
    text-align: center;
    font-size: 20px;
    border: none;
@@ -76,8 +74,7 @@ input {
 select {
    padding: 20px;
    border-radius: 5px;
-   background: #2a2a2a6b;
-   backdrop-filter: var(--backdrop-filter);
+   background: var(--background-column);
    color: var(--text-primary);
    font-size: 20px;
    border: 0px;
